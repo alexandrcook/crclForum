@@ -1,0 +1,12 @@
+/.idea
+/vendor
+/build/app/config.php
+*.xml
+*.iml
+.name
+*.name
+.idea/
+bower_components/
+node_modules/
+dbbackup/
+.test
