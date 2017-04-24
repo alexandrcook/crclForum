@@ -17,4 +17,9 @@ class MainController extends Controller
         View::show("default", ['sections' => $sections], 'main');
     }
 
+    public function notFound404()
+    {
+        View::show('404');
+    }
+
 }

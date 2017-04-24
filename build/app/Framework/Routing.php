@@ -2,7 +2,7 @@
 namespace App\Framework;
 
 use \Exception;
-use App\Auth\Auth;
+use App\Framework\Auth\Auth;
 
 class Routing
 {
@@ -40,17 +40,17 @@ class Routing
         $uriSections = explode('?', $_SERVER['REQUEST_URI'], 2);
         $route = ( $uriSections[0] != '/' ) ? rtrim($uriSections[0],'/') : '/';
         foreach ($this->routes as $routePattern => $val) {
+
             if( preg_match( '/^'.addcslashes($routePattern,'/').'$/', $route) ) {
+
+                var_dump($val);
 
                 if( $this->checkPolicy( $val ) ) {
                     return $val['handler'];
                 }
-
                 return false;
             }
-
         }
-
         return false;
     }
 
@@ -58,21 +58,28 @@ class Routing
 
         if( isset($route['policy']) ) {
 
-            if( $route['policy'] == 'is_admin' ) {
-                if( Auth::getLoggedUser()->is_admin !== true ) {
+            if( $route['policy'][0] == 'is_admin' ) {
+                if( !Auth::getLoggedUser('is_admin')) {
+                    $_SESSION['flash_msg'] = 'Only for ADMIN';
                     return false;
                 }
             }
+            if( $route['policy'][0] == 'is_user' ) {
 
-            if( $route['policy'] == 'is_user' ) {
-                if( !Auth::getLoggedUser() ) {
+                if( !Auth::getLoggedUser('is_user') ) {
+                    $_SESSION['flash_msg'] = 'Only for LOGINED user';
                     return false;
                 }
             }
-
         }
 
         return true;
+    }
+
+    public static function getRouteArgs()
+    {
+        $uriSections = explode('?', $_SERVER['REQUEST_URI'], 2);
+        return array_filter(explode( '/', $uriSections[0] ));
     }
 
 

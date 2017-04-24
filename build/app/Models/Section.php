@@ -7,6 +7,6 @@ use App\Models\Model;
 class Section extends Model
 {
     protected $table = 'sections';
-    protected $id, $title, $slug;
+    protected $sec_id, $title, $slug;
 
 }

@@ -1,20 +1,21 @@
 <div class="container">
     <div class="row">
+        <div class="col-xs-12">
+            <h2 style="text-align: center">
+                <?php \App\Controllers\AuthController::showVkAuth() ?>
+            </h2>
+        </div>
         <div class="col-sm-6 col-md-4 col-md-offset-1">
             <h1 class="text-center login-title">Логинизация</h1>
             <div class="account-wall">
                 <img class="profile-img" src="https://i.ytimg.com/vi/gu-rGAAWr-8/hqdefault.jpg"
                      alt="">
                 <form class="form-signin" method="post" action="/login/auth">
-                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                    <input type="text" class="form-control" name="name" placeholder="Name" required>
                     <input type="password" class="form-control" name="pass" placeholder="Password" required>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        Залогинизироваться</button>
-                    <label class="checkbox pull-left">
-                        <input type="checkbox" name="rememberMe" value="remember-me">
-                        Помни меня
-                    </label>
-                    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                        Залогинизироваться
+                    </button>
                 </form>
             </div>
         </div>
@@ -25,17 +26,13 @@
                      alt="">
                 <form class="form-signin" method="post" action="/login/reg">
                     <input type="text" class="form-control" name="name" placeholder="Name" required>
-                    <input type="radio" name="role" value="Customer"  checked="checked"> User<br>
-                    <input type="radio" name="role" value="Admin"> Admin<br>
+                    <input type="radio" name="role" value="user" checked="checked"> User<br>
+                    <input type="radio" name="role" value="admin"> Admin<br>
                     <input type="text" class="form-control" name="email" placeholder="Email" required>
                     <input type="password" class="form-control" name="pass" placeholder="Password" required>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        Зарегистрироваться</button>
-                    <label class="checkbox pull-left">
-                        <input type="checkbox" name="rememberMe" value="remember-me">
-                        Помни меня
-                    </label>
-                    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                        Зарегистрироваться
+                    </button>
                 </form>
             </div>
         </div>
@@ -43,22 +40,21 @@
 </div>
 
 <style>
-    .form-signin
-    {
+    .form-signin {
         max-width: 330px;
         padding: 15px;
         margin: 0 auto;
     }
-    .form-signin .form-signin-heading, .form-signin .checkbox
-    {
+
+    .form-signin .form-signin-heading, .form-signin .checkbox {
         margin-bottom: 10px;
     }
-    .form-signin .checkbox
-    {
+
+    .form-signin .checkbox {
         font-weight: normal;
     }
-    .form-signin .form-control
-    {
+
+    .form-signin .form-control {
         position: relative;
         font-size: 16px;
         height: auto;
@@ -67,24 +63,24 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    .form-signin .form-control:focus
-    {
+
+    .form-signin .form-control:focus {
         z-index: 2;
     }
-    .form-signin input[type="text"]
-    {
+
+    .form-signin input[type="text"] {
         margin-bottom: -1px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
-    .form-signin input[type="password"]
-    {
+
+    .form-signin input[type="password"] {
         margin-bottom: 10px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
-    .account-wall
-    {
+
+    .account-wall {
         margin-top: 20px;
         padding: 40px 0px 20px 0px;
         background-color: #f7f7f7;
@@ -92,15 +88,15 @@
         -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     }
-    .login-title
-    {
+
+    .login-title {
         color: #555;
         font-size: 18px;
         font-weight: 400;
         display: block;
     }
-    .profile-img
-    {
+
+    .profile-img {
         width: 96px;
         height: 96px;
         margin: 0 auto 10px;
@@ -109,12 +105,12 @@
         -webkit-border-radius: 50%;
         border-radius: 50%;
     }
-    .need-help
-    {
+
+    .need-help {
         margin-top: 10px;
     }
-    .new-account
-    {
+
+    .new-account {
         display: block;
         margin-top: 10px;
     }

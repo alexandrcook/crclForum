@@ -9,20 +9,20 @@ var gulp = require('gulp'),
 
 var path = {
     build: {
-        main:"build/"
+        main:"./build"
     },
     src: {
-        main:"build/"
+        main:"./build"
     },
     watch: {
-        main:"build/"
+        main:"./build"
     },
     clean: './build'
 };
 
 gulp.task('main:rebuild', function () {
     gulp.src(path.src.main)
-        .pipe(gulp.dest(path.build.main))
+        //.pipe(gulp.dest(path.build.main))
         .pipe(reload({stream: true}));
 });
 

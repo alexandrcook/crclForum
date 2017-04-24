@@ -5,7 +5,6 @@ use App\Framework\Config;
 use App\Framework\Routing;
 use App\Database\DB;
 use App\Services\ServicesContainer;
-use App\Services\Validator\Validator;
 
 class App
 {
@@ -36,7 +35,7 @@ class App
             $controller->$methodName();
         }
         else {
-            echo '404';
+            header('location: /404');
         }
 
 	}

@@ -26,7 +26,8 @@ class Config
     /**
      * Config constructor.
      */
-    private function __construct() {
+    private function __construct() //при инициализации класа подтягиваем файл конфигурации
+    {
 
         try {
             include __DIR__ . '/../config.php';
@@ -37,12 +38,12 @@ class Config
         }
     }
 
-    public function get( $name ) {
+    public function get( $name ) //Функция возвращает значения из config.php
+    {
         $keys = array_filter( explode('.', $name) );
 
         $res = null;
         for( $i = 0; $i < count($keys); $i++ ) {
-
             if( !$res ) {
                 if (array_key_exists($keys[$i], $this->values)) {
                     $res = $this->values[$keys[$i]];

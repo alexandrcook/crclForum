@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Апр 19 2017 г., 17:38
+-- Время создания: Апр 23 2017 г., 21:38
 -- Версия сервера: 5.7.17
 -- Версия PHP: 7.0.17
 
@@ -79,11 +79,21 @@ CREATE TABLE `topics` (
 CREATE TABLE `users` (
   `use_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `pass` varchar(50) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
   `is_admin` int(11) DEFAULT NULL,
-  `vk_id` int(11) DEFAULT NULL
+  `vk_id` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`use_id`, `name`, `email`, `pass`, `is_admin`, `vk_id`) VALUES
+(4, 'test', 'test@test.te', '179ad45c6ce2cb97cf1029e212046e81', NULL, NULL),
+(5, 'testAdmin', 'admin@admin.ad', '25e4ee4e9229397b6b17776bfceaf8e7', 1, NULL),
+(6, 'test2', 'test2@test2.te', 'e9f6af2ef8239d3b74e408205ecda93a', NULL, NULL),
+(7, 'Олександр', NULL, NULL, NULL, '11513800');
 
 --
 -- Индексы сохранённых таблиц
@@ -136,7 +146,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `use_id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `use_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
