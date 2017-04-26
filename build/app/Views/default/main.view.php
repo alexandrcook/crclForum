@@ -1,6 +1,5 @@
 <h1>Forum Sections</h1>
 
-
 <ul>
     <?php foreach($data['sections'] as $section) { ?>
 

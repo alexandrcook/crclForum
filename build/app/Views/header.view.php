@@ -50,7 +50,7 @@
                             }else{
                                 echo (' (user) ');
                             }
-                            echo('<a style="display: inline-block; padding: 5px" class="btn btn-default" href="/account/profile/'.$_SESSION['user_id'].'">Профиль</a>');
+                            echo('<a style="display: inline-block; padding: 5px" class="btn btn-default" href="/account/profile">Профиль</a>');
                             echo('<a style="display: inline-block; padding: 5px" class="btn btn-default" href="/logout">Выйти</a>');
                             echo('</li>');
                         } else {

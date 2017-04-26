@@ -10,6 +10,7 @@ class Auth implements AuthInterface
 {
 
     public static $user;
+    
 
     public static function login(Array $credentials)
     {
@@ -21,7 +22,7 @@ class Auth implements AuthInterface
         $res = DB::select("SELECT * FROM users WHERE `name` =? AND `pass` = ?", $arguments);
         if (!empty($res)) {
             $user = (new User())->hydrate($res);
-            $_SESSION['user_id'] = $res[0]['use_id'];
+            $_SESSION['user_id'] = $res[0]['id'];
             $_SESSION['user_name'] = $res[0]['name'];
             if (isset($res[0]['is_admin'])) {
                 $_SESSION['is_admin'] = $res[0]['is_admin'];

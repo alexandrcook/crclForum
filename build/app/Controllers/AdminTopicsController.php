@@ -1,0 +1,52 @@
+<?php
+namespace App\Controllers;
+
+use App\Controllers\Controller;
+use App\Models\{Section, Topic, Post, User};
+use App\Database\DB;
+use App\Framework\Auth\Auth;
+use App\Framework\Auth\AuthInterface;
+use App\Framework\View;
+
+class AdminTopicsController extends Controller
+{
+    public function showtopics(){
+        $topics= Topic::all();
+        View::show("admin", ['topics'=>$topics], 'topics');
+    }
+
+    public function createtopic(){
+        if(!empty($_POST)){
+            $topic = new topic();
+            $topic->setTitle($_POST['title']);
+            $topic->setSlug($_POST['slug']);
+            $topic->save();
+            $_SESSION['flash_msg'] = "topic with name *<b>".$_POST['title']."</b>* succesfully CREATED";
+        }else{
+            $_SESSION['flash_msg'] = "topic WASN*T created!!! DANGER!!! ERROR!!! ACHTUNG!!!";
+        }
+        header('location: /admin/topics');
+    }
+
+    public function editTopic(){
+        $id = explode('/', $_SERVER['REQUEST_URI'])[4];
+        $topic=Section::getById($id);
+        if(!empty($_POST)){
+            $topic[0]->setTitle($_POST['title']);
+            $topic[0]->setSlug($_POST['slug']);
+            $topic[0]->save();
+            $_SESSION['flash_msg'] = "topic with name *<b>".$_POST['title']."</b>* succesfully EDITED";
+            header('location: /admin/topics');
+        }else{
+            View::show("admin",['topic' => $topic[0]], 'topicEdit');
+        }
+    }
+
+    public function deleteTopic(){
+        $id = explode('/', $_SERVER['REQUEST_URI'])[4];
+        DB::delete("DELETE  FROM `topics` 
+        WHERE `id`=".$id);
+        $_SESSION['flash_msg'] = "Topic with id *<b>".$id."</b>* succesfully DELETED !!!";
+        header('location: /admin/topics');
+    }
+}

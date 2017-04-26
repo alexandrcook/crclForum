@@ -68,7 +68,6 @@ abstract class Model implements ModelInterface
             $var = lcfirst(substr($name, 3));
             $this->$var = $args[0];
         }
-
     }
 
     public static function __callStatic( $name, $args ) {
@@ -100,11 +99,7 @@ abstract class Model implements ModelInterface
         else {
             DB::update("UPDATE $this->table 
                             SET $query 
-                            where `ac_id`='{$update['ac_id']}' 
-                            OR `ca_id`='{$update['ca_id']}' 
-                            OR `tr_id`='{$update['tr_id']}' 
-                            OR `us_id`='{$update['us_id']}'
-                            OR `us_ac_id`='{$update['us_ac_id']}'");
+                            where `id`='{$update['id']}'");
 
             //DB::update("UPDATE $this->table SET $query where `use_id`='{$update['user_id']}'");
         }

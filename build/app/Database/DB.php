@@ -29,10 +29,8 @@ class DB implements DatabaseInterface
         catch (PDOException $e) {
             echo $e->getMessage();
         }
-
         return self::$instance;
     }
-
     private function __construct(){
 
     }

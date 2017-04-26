@@ -18,7 +18,7 @@ class ForumController extends Controller
         if ($postForm){
             $topic= new Topic;
             $topic->setTitle($postForm);
-            $topic->setSection_id($section[0] ->getSec_id());
+            $topic->setSection_id($section[0]->getSec_id());
             $topic->save();
         }
         $topic = Topic::getBySection_id($section[0] ->getSec_id());
@@ -42,5 +42,15 @@ class ForumController extends Controller
         }
         $posts= Post::getByTopic_id($topicId);
         View::show('topics', ['topic' => $topic, 'section' => $section, 'post'=>$posts]);
+    }
+
+    public function createSection()
+    {
+
+    }
+
+    public function createTopic()
+    {
+
     }
 }
