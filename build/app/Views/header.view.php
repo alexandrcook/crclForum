@@ -45,24 +45,27 @@
                             echo('<span style="display: inline-block; margin-top: 15px">
                                     <b>"' . $_SESSION['user_name'] . '"</b>
                                 </span>');
-                            if(isset($_SESSION['is_admin']) and $_SESSION['is_admin'] != null){
-                                echo (' (admin) ');
-                            }else{
-                                echo (' (user) ');
+                            if (isset($_SESSION['is_admin']) and $_SESSION['is_admin'] != null) {
+                                echo(' (admin) ');
+                                echo('<a style="display: inline-block; padding: 5px; color: black" class="btn btn-danger" href="/admin">Destroy pentagon!</a>');
+                            } else {
+                                echo(' (user) ');
                             }
-                            echo('<a style="display: inline-block; padding: 5px" class="btn btn-default" href="/account/profile">Профиль</a>');
-                            echo('<a style="display: inline-block; padding: 5px" class="btn btn-default" href="/logout">Выйти</a>');
+                            echo('<a style="display: inline-block; padding: 5px; color: black" class="btn btn-success" href="/account">Account</a>');
+                            echo('<a style="display: inline-block; padding: 5px; color: black" class="btn btn-info" href="/account/profile">Profile</a>');
+                            echo('<a style="display: inline-block; padding: 5px; color: black" class="btn btn-primary" href="/logout">Logout</a>');
                             echo('</li>');
                         } else {
                             echo('<li style="float: right"><a class="page-scroll" href="/login">Login/Register</a></li>');
-                        }?>
+                        } ?>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
         </nav>
-        <div class="col-xs-12 messages-pole">
+        <div class="col-xs-6 messages-pole">
+            <hr style="border: 1px solid black">
             <div class="toload"></div>
             <?php
             echo('Flash info:<br>');
@@ -73,7 +76,17 @@
             }
             echo('</h3>');
             ?>
-            <hr>
+        </div>
+        <div class="col-xs-6" style="text-align: right">
+            <hr style="border: 1px solid black">
+            <form method="post" action="/search">
+                <label class="form-group">
+                    SEARCH: <span class="glyphicon glyphicon-search"></span>
+                    <input name="search" class="form-control" type="search" placeholder="Как увеличить...">
+                    <input type="submit" class="form-control btn btn-success" value="Go search">
+                </label>
+            </form>
         </div>
     </div>
+    <hr style="border: 1px solid black">
 

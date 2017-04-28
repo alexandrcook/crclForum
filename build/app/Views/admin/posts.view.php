@@ -1,7 +1,4 @@
-<h2>Account</h2>
-
-
-<h2>My Posts</h2>
+<h2>Posts</h2>
 
 <div class="row">
     <div class="create col-xs-6">
@@ -13,7 +10,7 @@
                 <input name='topic_id' type="text" class="form-control" placeholder="topic_id">
             </div>
             <div>
-                <input name='user_id' type="text" class="form-control" value="<?= $_SESSION['user_id']?>">
+                <input name='user_id' type="text" class="form-control" placeholder="user_id">
             </div>
 
             <button type="submit" class="button btn btn-primary center-block">Create post</button>

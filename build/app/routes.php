@@ -10,6 +10,7 @@ $_routes = [
     '/login/auth' => ['handler' => ['AuthController', 'login']],
     '/login/vkAuth' => ['handler' => ['AuthController', 'vkAuth']],
     '/login/reg' => ['handler' => ['AuthController', 'registration']],
+    '/search' => ['handler' => ['SearchController', 'searchText']],
 
     //ACCOUNT
     '/account' => [

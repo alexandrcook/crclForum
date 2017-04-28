@@ -70,7 +70,6 @@ class AuthController extends Controller
             'redirect_uri' => $redirect_uri,
             'response_type' => 'code'
         );
-
         echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
     }
 

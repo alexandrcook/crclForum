@@ -11,12 +11,13 @@ class AccountController extends Controller
 {
     public function defaultFunc()
     {
-        View::show('account');
+        $posts=Post::getByUser_id($_SESSION['user_id']);
+        //$topics=Topic::getByUser_id($_SESSION['user_id']);
+        View::show('account', ['posts'=> $posts]);
     }
 
     public function showUserProfile()
     {
-
         View::show('account', null,'profile');
     }
 

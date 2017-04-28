@@ -8,10 +8,10 @@
             </div>
 
             <div>
-                <input name='slug' type="text" class="form-control" placeholder="slug">
+                <input name='section_id' type="text" class="form-control" placeholder="section_id">
             </div>
 
-            <button type="submit" class="button btn btn-primary center-block">Create topics</button>
+            <button type="submit" class="button btn btn-primary center-block">Create topic</button>
         </form>
     </div>
 </div>
@@ -20,7 +20,7 @@
     <tr style="border-collapse: collapse;">
         <td style="border: solid 1px black; padding: 10px">#</td>
         <td style="border: solid 1px black; padding: 10px">Title</td>
-        <td style="border: solid 1px black; padding: 10px">Slug</td>
+        <td style="border: solid 1px black; padding: 10px">Section (s_id)</td>
         <td style="border: solid 1px black; padding: 10px">Edit</td>
         <td style="border: solid 1px black; padding: 10px">Delate</td>
     </tr>
@@ -31,6 +31,7 @@
     foreach ($data['topics'] as $key => $topic) {
         $i++;
         ?>
+
         <tr style="border-collapse: collapse;">
             <td style="border: solid 1px black; padding: 10px">
                 <?= $i ?></td>
@@ -38,7 +39,8 @@
                 <?= $topic->getTitle() ?>
             </td>
             <td style="border: solid 1px black; padding: 10px">
-                <?= $topic->getSlug() ?>
+                <?= $topic->section()->getTitle() ?>
+                (<?= $topic->getSection_id() ?>)
             </td>
             <td style="border: solid 1px black; padding: 10px">
                 <a href="/admin/topics/edit/<?= $topic->getId() ?>">Edit</a></td>

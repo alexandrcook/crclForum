@@ -3,8 +3,7 @@ namespace App\Controllers;
 
 use App\Controllers\Controller;
 use App\Models\User;
-use App\Models\{Section, Topic};
-
+use App\Models\{Section, Topic, Post};
 use App\Framework\View;
 use App\Framework\Routing;
 
@@ -18,12 +17,13 @@ class ForumController extends Controller
         if ($postForm){
             $topic= new Topic;
             $topic->setTitle($postForm);
-            $topic->setSection_id($section[0]->getSec_id());
+            $topic->setSection_id($section[0]->getId());
             $topic->save();
         }
-        $topic = Topic::getBySection_id($section[0] ->getSec_id());
+        $topic = Topic::getBySection_id($section[0] ->getId());
         View::show('sections', ['topic' => $topic, 'section' => $section]);
     }
+
     public function showTopic(){
         $routeData = Routing::getRouteArgs();
         $sectionSlug = $routeData[2];
@@ -36,21 +36,10 @@ class ForumController extends Controller
             $post->setText($postForm);
             $post->setTopic_id($topicId);
             $post->setUser_id($_SESSION['user_id']);
-            $date=date('Y-m-d');
-            $post->setCrated_at($date);
+            $post->setCreated_at(date('Y-m-d'));
             $post->save();
         }
         $posts= Post::getByTopic_id($topicId);
         View::show('topics', ['topic' => $topic, 'section' => $section, 'post'=>$posts]);
-    }
-
-    public function createSection()
-    {
-
-    }
-
-    public function createTopic()
-    {
-
     }
 }

@@ -19,7 +19,6 @@ abstract class Model implements ModelInterface
     }
 
     public static function get(Int $id) {
-
         $model = new static;
         return $model->hydrate(DB::select("SELECT * FROM $model->table WHERE `id`=?", [$id]));
     }

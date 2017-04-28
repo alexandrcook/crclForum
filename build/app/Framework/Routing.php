@@ -43,7 +43,10 @@ class Routing
 
             if( preg_match( '/^'.addcslashes($routePattern,'/').'$/', $route) ) {
 
+                echo '<div class="container">';
                 var_dump($val);
+                echo '</div>';
+
 
                 if( $this->checkPolicy( $val ) ) {
                     return $val['handler'];
