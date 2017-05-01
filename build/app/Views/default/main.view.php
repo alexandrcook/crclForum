@@ -5,7 +5,6 @@
     <tr>
         <th>#</th>
         <th>Section Name</th>
-        <th>Topics Count</th>
         <th>Ref to topic</th>
     </tr>
     </thead>
@@ -18,10 +17,9 @@
             <td>
                 <a href="/section/<?= $section->getSlug() ?>"><?= $section->getTitle() ?>
                 </a>
+                ( <b><?= count($section->topicsInSection($section->getId())) ?></b> topic(s) in this section )
             </td>
-            <td>
-                <?= count($section->topicsInSection($section->getId())) ?>
-            </td>
+
             <td>
                 <ul>
                     <?php foreach ($section->topicsInSection($section->getId()) as $topic) { ?>

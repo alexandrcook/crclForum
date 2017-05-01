@@ -103,4 +103,9 @@ abstract class Model implements ModelInterface
             //DB::update("UPDATE $this->table SET $query where `use_id`='{$update['user_id']}'");
         }
     }
+
+    public function delete()
+    {
+
+    }
 }

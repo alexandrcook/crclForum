@@ -12,7 +12,6 @@ class AdminPostsController extends Controller
 {
     public function showPosts(){
         $posts = post::all();
-        $sections = Section::all();
         View::show("admin", ['posts'=>$posts], 'posts');
     }
 

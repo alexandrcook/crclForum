@@ -10,7 +10,6 @@ class Auth implements AuthInterface
 {
 
     public static $user;
-    
 
     public static function login(Array $credentials)
     {

@@ -4,17 +4,23 @@ $_config = [
     'db' => [
         'host' => 'localhost',
         'user' => 'root',
-        'password' => 'secret',
-        'database' => 'auction'
+        'password' => '',
+        'database' => 'forum'
     ],
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'port' => 587,
-        'user' => '****@gmail.com',
-        'password' => '****'
+        'user' => 'alexandr.cook.ua@gmail.com',
+        'password' => '*************'
     ],
     'admin' => [
-        'email' => '****@gmail.com'
+        'email' => 'alexandr.cook.ua@gmail.com'
+    ],
+    'vkApp' => [
+        'client_id' => '**********', // ID приложения
+        'client_secret' => '*************', // Защищённый ключ
+        'redirect_uri' => 'http://localhost:8000/login/vkAuth', // Адрес сайта
+        'url' => 'http://oauth.vk.com/authorize'
     ],
     'lotLimit'=>"3"
 ];

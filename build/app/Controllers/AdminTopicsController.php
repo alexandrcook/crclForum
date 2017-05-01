@@ -52,7 +52,9 @@ class AdminTopicsController extends Controller
         $id = explode('/', $_SERVER['REQUEST_URI'])[4];
         DB::delete("DELETE  FROM `topics` 
         WHERE `id`=" . $id);
-        $_SESSION['flash_msg'] = "Topic with id *<b>" . $id . "</b>* succesfully DELETED !!!";
+        DB::delete("DELETE  FROM `posts` 
+        WHERE `topic_id`=" . $id);
+        $_SESSION['flash_msg'] = "Topic with id *<b>" . $id . "</b>* succesfully DELETED with all messages !!!";
         header('location: /admin/topics');
     }
 }

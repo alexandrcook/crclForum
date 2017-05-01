@@ -32,7 +32,7 @@
                     <!--                    <a class="navbar-brand page-scroll" href="/">GuestBook</a>-->
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="collapse navbar-collapse navbar-ex1-collapse" style="margin-right: -15px;">
                     <ul class="nav navbar-nav" style="width: 100%; margin-left: -15px">
                         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">

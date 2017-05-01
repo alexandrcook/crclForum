@@ -5,6 +5,7 @@ $_routes = [
     '/404' => ['handler' => ['MainController', 'notFound404']],
     '/section/([a-z]*)/([0-9]+)' => ['handler' => ['ForumController', 'showTopic']],
     '/section/([a-z]*)' => ['handler' => ['ForumController', 'showSection']],
+    '/topic/create/([a-z]*)' => ['handler' => ['ForumController', 'createTopic']],
     '/logout' => ['handler' => ['AuthController', 'logout']],
     '/login' => ['handler' => ['AuthController', 'defaultFunc']],
     '/login/auth' => ['handler' => ['AuthController', 'login']],
